@@ -14,17 +14,16 @@ Skill de Claude para hacer **el sitio web que sea** en Odoo 17–20, de la maque
 
 Guía con imágenes: [`docs/Guia - skill odoo-web-design.pdf`](docs/). Descripción del caso para tareas: `docs/Caso - skill odoo-web-design.html`.
 
-## Instalar (desde el chat de Claude, pestaña Code)
+## Instalar (diseñadores web, desde el chat de Claude, pestaña Code)
 
-El repositorio es privado: pide acceso a galc-odoo y acepta la invitación. Luego pega en Claude:
+El repositorio es público: no necesitas cuenta de GitHub para usarlo. Pega en Claude:
 
 ```
 Instala la skill de sitios web de Odoo del repositorio https://github.com/galc-odoo/odoo-website.
-Hazlo tú, sin pedirme comandos: si no hay sesión de GitHub, inicia sesión con gh (código en el navegador,
-nunca contraseñas en el chat); luego ejecuta
-claude plugin marketplace add galc-odoo/odoo-website  y  claude plugin install odoo-web@odoo-website,
-y dime que reinicie la sesión.
+Hazlo tú, sin pedirme comandos: ejecuta claude plugin marketplace add galc-odoo/odoo-website
+y claude plugin install odoo-web@odoo-website, y dime que reinicie la sesión.
 ```
+Para proponer mejoras sí necesitas cuenta de GitHub y la invitación de galc-odoo (ver CONTRIBUTING.md).
 Actualizar: `claude plugin marketplace update odoo-website`.
 
 ## Estructura
