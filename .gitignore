@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+# Credenciales y trabajo por cliente: nunca al repositorio
+.env
+*.key
+.key
+clientes/
+respaldo/
+*.zip

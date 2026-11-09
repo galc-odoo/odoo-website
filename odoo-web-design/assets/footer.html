@@ -1,0 +1,38 @@
+<!-- odoo_web_design · footer del sitio. Va en website.custom_code_footer ANTES del <script>.
+     Odoo lo imprime justo después de #wrapwrap (HTML del servidor: Google lo lee).
+     El CSS base oculta footer#bottom (el footer de la plantilla). Reemplaza los {{…}}. -->
+<footer class="owd-sitefooter" role="contentinfo">
+  <div class="owd-sf-wrap">
+    <div class="owd-ft-top">
+      <div class="owd-ft-brand">
+        <img src="{{LOGO_URL}}" alt="{{MARCA}}" class="owd-ft-logo" loading="lazy" width="{{LOGO_W}}" height="{{LOGO_H}}"/>
+        <p class="owd-ft-claim">{{CLAIM}}</p>
+      </div>
+      <p class="owd-ft-quote">{{FRASE_DE_MARCA}}</p>
+    </div>
+    <div class="owd-ft-cols">
+      <div>
+        <h6>Pedidos</h6>
+        <p><a href="https://wa.me/{{WHATSAPP}}" target="_blank" rel="noopener">WhatsApp<br/>{{WHATSAPP_VISIBLE}}</a></p>
+      </div>
+      <div>
+        <h6>Escríbenos</h6>
+        <p><a href="mailto:{{CORREO}}">{{CORREO}}</a></p>
+        <p><a href="/contacto">Contacto</a></p>
+      </div>
+      <div>
+        <h6>Explora</h6>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <!-- {{UN <li> POR PÁGINA DEL MENÚ}} -->
+        </ul>
+      </div>
+      <div>
+        <h6>{{MARCA}}</h6>
+        <p>{{CIUDAD}}</p>
+        <p><a href="/aviso-de-privacidad">Aviso de privacidad</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="owd-sf-bottom"><div class="owd-sf-wrap"><span>© {{AÑO}} {{MARCA}}</span><span>{{CLAIM}}</span></div></div>
+</footer>
