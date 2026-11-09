@@ -1,0 +1,48 @@
+{
+  "cliente": "cliente",
+  "tema": "editorial-oscuro",
+  "descripcion": "Lujo editorial oscuro: gastronomía de autor, moda, joyería, hoteles boutique, bebidas premium.",
+  "modo": "oscuro",
+  "colores": {
+    "bg": "#100506",
+    "text": "#F3E8DC",
+    "mute": "#A8958A",
+    "accent": "#C9A77C",
+    "brand": "#4A060A",
+    "on_brand": "#F3E8DC"
+  },
+  "fuentes": {
+    "display": "\"Bodoni Moda\",\"Didot\",Georgia,serif",
+    "body": "\"Jost\",\"Futura\",system-ui,sans-serif",
+    "google": "Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300;400;500"
+  },
+  "estilo": {
+    "titular_italica": true,
+    "titular_mayusculas": true,
+    "titular_peso": 400,
+    "radio": "2px",
+    "pildora": "999px",
+    "boton_radio": "0px",
+    "espaciado": 1,
+    "etiquetas_mayusculas": true
+  },
+  "modulos": [
+    "nucleo",
+    "header-footer",
+    "contenido",
+    "efectos"
+  ],
+  "js": {
+    "paginas": [
+      "/",
+      "/nosotros",
+      "/servicios",
+      "/contacto"
+    ],
+    "whatsapp": "",
+    "botonFlotante": "Escríbenos",
+    "cursor": false,
+    "horario": null,
+    "formulario": "#owd_form"
+  }
+}

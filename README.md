@@ -1,55 +1,61 @@
 # odoo-website · skill `odoo-web-design`
 
-Skill de Claude para diseñar y construir sitios web *high end* en **Odoo 17–20** por API: maqueta, páginas con bloques nativos editables, CSS y JavaScript en el **código personalizado del sitio** (sin tocar plantillas, resistente a migraciones), estética de Tienda, carrito y pago, SEO para buscadores e IAs, optimización de fotos y auditoría final.
+Skill de Claude para hacer **el sitio web que sea** en Odoo 17–20, de la maqueta al recorrido como usuario:
 
-## Contenido
+1. Accesos de la base (API RPC) y diagnóstico en solo lectura.
+2. Contexto del cliente.
+3. Maqueta en PDF con todas las páginas y los efectos JS/CSS deseados.
+4. Imágenes principales (solo referencia).
+5. Vista previa en vivo en una ventana al lado, **sin tocar la base**.
+6. Recomendaciones de transiciones, animaciones e interactivos según el giro.
+7. Construcción en Odoo con aprobación: páginas con bloques nativos y **todo el CSS/JS en el código personalizado del sitio, nunca en vistas**.
+8. Revisión del diseñador y ajustes.
+9. Recorrido como usuario: da clic a todo frente al diseñador y entrega un reporte.
+
+Guía con imágenes: [`docs/Guia - skill odoo-web-design.pdf`](docs/). Descripción del caso para tareas: `docs/Caso - skill odoo-web-design.html`.
+
+## Instalar (desde el chat de Claude, pestaña Code)
+
+El repositorio es privado: pide acceso a galc-odoo y acepta la invitación. Luego pega en Claude:
 
 ```
-odoo-web-design/
-├── SKILL.md                 # Flujo de 6 fases y reglas (empieza aquí)
-├── reference/
-│   ├── diseno.md            # Dirección visual, tokens, maqueta, fotos
-│   ├── odoo-tecnico.md      # Trampas de Odoo: traducciones, copias por sitio, editor, SEO, carrito
-│   ├── js-css-patrones.md   # CSS/JS base, interactivos, rendimiento, tienda oscura
-│   └── entrega.md           # Checklist, bitácora y guía para el cliente
-├── scripts/                 # odoo_rpc, push_code, bloques, escribir_pagina, optimizar_imagenes, centrar_zoom, auditar_sitio
-└── assets/                  # base.css, base.js, footer.html (prefijo .owd-, paleta en tokens)
-docs/
-└── Guia rapida - instalar skill odoo-web-design.pdf
+Instala la skill de sitios web de Odoo del repositorio https://github.com/galc-odoo/odoo-website.
+Hazlo tú, sin pedirme comandos: si no hay sesión de GitHub, inicia sesión con gh (código en el navegador,
+nunca contraseñas en el chat); luego ejecuta
+claude plugin marketplace add galc-odoo/odoo-website  y  claude plugin install odoo-web@odoo-website,
+y dime que reinicie la sesión.
+```
+Actualizar: `claude plugin marketplace update odoo-website`.
+
+## Estructura
+
+```
+.claude-plugin/marketplace.json
+plugins/odoo-web/
+├── .claude-plugin/plugin.json
+└── skills/odoo-web-design/
+    ├── SKILL.md                    # los 9 pasos y las reglas (empieza aquí)
+    ├── reference/                  # diseño, componentes, trampas de Odoo, CSS/JS, recorrido, entrega
+    ├── assets/temas/*.json         # 5 direcciones de partida → marca.json del cliente
+    ├── assets/css/, assets/js/     # módulos con variables del tema
+    ├── assets/revisar_pagina.js    # revisión de cada página en el navegador
+    ├── assets/footer.html
+    └── scripts/                    # armar, vista_previa, bloques, escribir_pagina, push_code, recorrido…
 ```
 
-## Instalar
-
-**Claude (app de escritorio o claude.ai):** comprime la carpeta `odoo-web-design/` en un `.zip` y súbelo en *Ajustes → Capacidades → Skills → Subir skill*. Pasos con imágenes en `docs/`.
+## Probar cambios sin instalar
 
 ```bash
-cd odoo-website && zip -r odoo-web-design.zip odoo-web-design -x "*.DS_Store"
+claude --plugin-dir plugins/odoo-web
 ```
-
-**Claude Code:** copia la carpeta a tus skills personales.
-
+Vista previa de todos los bloques con un tema:
 ```bash
-cp -R odoo-web-design ~/.claude/skills/
+python plugins/odoo-web/skills/odoo-web-design/scripts/vista_previa.py --marca plugins/odoo-web/skills/odoo-web-design/assets/temas/corporativo.json --salida /tmp/vista.html
 ```
-
-Después pide algo como: *"Usa odoo-web-design para rediseñar el sitio de <cliente>"*.
-
-## Regla principal
-
-| Qué | Dónde vive |
-|---|---|
-| Estilos | `website.custom_code_head` (`<style id="odoo_web_design_<cliente>">`) |
-| JavaScript y footer propio | `website.custom_code_footer` |
-| Páginas nuevas | `website.page` + vista propia con bloques nativos (única vista que se escribe por API) |
-| Páginas estándar (Tienda, Carrito, Pago, Contáctanos) | Solo CSS con su clase de `body` |
-| Plantillas estándar o heredadas | **Nunca** se editan por API |
 
 ## Seguridad
 
-- La API key de Odoo va en variables de entorno (`ODOO_KEY`) o en un archivo con `chmod 600` (`ODOO_KEY_FILE`). **Nunca** en el repositorio, en el chat ni en entregables.
-- No subas carpetas de clientes (`clientes/`, `respaldo/`): tienen datos y respaldos de bases reales. El `.gitignore` ya las excluye.
-- Nada se escribe en Odoo sin el "sí" del consultor en cada fase.
+- La API key va en `ODOO_KEY_FILE` (archivo `chmod 600`) o `ODOO_KEY`; nunca en el repositorio, el chat ni entregables.
+- Las carpetas de clientes (`clientes/`, `respaldo/`, `recorrido/`) no se suben: el `.gitignore` las excluye.
 
-## Cómo colaborar (consultores)
-
-Ver [CONTRIBUTING.md](CONTRIBUTING.md). Resumen: cada consultor trabaja en **su propia branch**, prueba el cambio en un sitio real o de prueba y abre un Pull Request hacia `main`.
+Cómo proponer mejoras: [CONTRIBUTING.md](CONTRIBUTING.md).

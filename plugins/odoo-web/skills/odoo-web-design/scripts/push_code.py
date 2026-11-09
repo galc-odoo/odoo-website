@@ -1,7 +1,7 @@
 """Sube el CSS, el JS y el footer al código personalizado del sitio (no son vistas).
 
-  python push_code.py --cliente baddie --css odoo/sitio.css --js odoo/sitio.js \
-      --footer odoo/footer.html [--fonts "Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300;400;500"] \
+  python push_code.py --cliente acme --css odoo/sitio.css --js odoo/sitio.js \
+      --footer odoo/footer.html [--fonts "$(cat odoo/fuentes.txt)"] \
       [--website 1] [--dry-run]
 
 - custom_code_head  = <link> de Google Fonts + <style id="odoo_web_design_<cliente>">CSS</style>

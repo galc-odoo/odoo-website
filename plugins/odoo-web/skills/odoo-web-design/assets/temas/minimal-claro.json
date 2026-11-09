@@ -1,0 +1,48 @@
+{
+  "cliente": "cliente",
+  "tema": "minimal-claro",
+  "descripcion": "Minimal claro: estudios de diseño y arquitectura, galerías, marcas de autor, portafolios.",
+  "modo": "claro",
+  "colores": {
+    "bg": "#FAFAF7",
+    "text": "#161616",
+    "mute": "#5E5E58",
+    "accent": "#B5472C",
+    "brand": "#161616",
+    "on_brand": "#FAFAF7"
+  },
+  "fuentes": {
+    "display": "\"Instrument Serif\",Georgia,serif",
+    "body": "\"Inter\",system-ui,sans-serif",
+    "google": "Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500"
+  },
+  "estilo": {
+    "titular_italica": false,
+    "titular_mayusculas": false,
+    "titular_peso": 400,
+    "radio": "0px",
+    "pildora": "999px",
+    "filete": 12,
+    "boton_radio": "0px",
+    "espaciado": 0.5,
+    "etiquetas_mayusculas": true
+  },
+  "modulos": [
+    "nucleo",
+    "header-footer",
+    "contenido"
+  ],
+  "js": {
+    "paginas": [
+      "/",
+      "/nosotros",
+      "/servicios",
+      "/contacto"
+    ],
+    "whatsapp": "",
+    "botonFlotante": "Escríbenos",
+    "cursor": false,
+    "horario": null,
+    "formulario": "#owd_form"
+  }
+}

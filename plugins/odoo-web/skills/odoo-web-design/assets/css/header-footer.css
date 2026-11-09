@@ -1,0 +1,39 @@
+/* ===== Footer marca (código personalizado; el footer de la plantilla se oculta) ===== */
+footer#bottom{display:none!important}
+.owd-sitefooter{background:var(--owd-brand);color:var(--owd-on-brand);font-family:var(--owd-body);font-weight:300;-webkit-font-smoothing:antialiased}
+.owd-sitefooter .owd-sf-wrap{max-width:1440px;margin-inline:auto;padding-inline:clamp(16px,5vw,88px)}
+.owd-sitefooter>.owd-sf-wrap{padding-block:clamp(64px,8vw,112px) 40px}
+.owd-ft-top{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end;margin-bottom:56px}
+.owd-ft-logo{display:block;width:min(100%,560px);height:auto}
+.owd-ft-claim{margin:18px 0 0;font-size:12px;letter-spacing:calc(.42em * var(--owd-track));text-transform:var(--owd-label-case);color:var(--owd-on-brand)}
+.owd-ft-quote{margin:0;justify-self:end;text-align:right;max-width:26ch;font-family:var(--owd-display);font-style:var(--owd-display-style);font-size:clamp(20px,2vw,28px);line-height:1.25;color:var(--owd-on-brand)}
+.owd-ft-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid color-mix(in srgb,var(--owd-on-brand) 18%,transparent);padding-top:32px}
+.owd-sitefooter h6{margin:0 0 14px;font-family:var(--owd-body);font-weight:400;font-size:10px;letter-spacing:calc(.36em * var(--owd-track));text-transform:var(--owd-label-case);color:var(--owd-accent-on-brand)}
+.owd-sitefooter p,.owd-sitefooter li{margin:0 0 8px;font-size:15px;line-height:1.6;color:var(--owd-on-brand)}
+.owd-sitefooter ul{list-style:none;margin:0;padding:0}
+.owd-sitefooter a{color:var(--owd-on-brand);text-decoration:none;background-image:linear-gradient(var(--owd-accent-on-brand),var(--owd-accent-on-brand));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .5s cubic-bezier(.16,.84,.24,1),color .3s}
+.owd-sitefooter a:hover,.owd-sitefooter a:focus-visible{color:var(--owd-on-brand);background-size:100% 1px}
+.owd-sf-bottom{background:var(--owd-brand-dark);border-top:1px solid color-mix(in srgb,var(--owd-on-brand) 12%,transparent)}
+.owd-sf-bottom .owd-sf-wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px;font-size:10px;letter-spacing:calc(.32em * var(--owd-track));text-transform:var(--owd-label-case);color:color-mix(in srgb,var(--owd-on-brand) 70%,transparent)}
+@media (max-width:991px){.owd-ft-top{grid-template-columns:1fr}.owd-ft-quote{justify-self:start;text-align:left}.owd-ft-cols{grid-template-columns:1fr 1fr;row-gap:32px}body:has(.owd-site) .owd-sf-bottom{padding-bottom:72px}}
+
+/* ===== Header ===== */
+header .navbar-brand.logo img{height:24px!important;width:auto}
+header .o_header_mobile .navbar-brand.logo img{height:20px!important}
+/* En las páginas informativas se ocultan buscador, lista de deseos e inicio de sesión (la Tienda los conserva) */
+body:has(.owd-site) header .o_wsale_my_wish,
+body:has(.owd-site) header li:has(> form.o_searchbar_form),
+body:has(.owd-site) header li:has(> .o_searchbar_form),
+body:has(.owd-site) header li.o_no_autohide_item:has(a[href="/web/login"]){display:none!important}
+#top_menu>.nav-item:has(>a[href^="https://wa.me"]){margin-left:auto}
+#top_menu>.nav-item>a[href^="https://wa.me"]{border:1px solid currentColor;border-radius:var(--owd-pill);padding:9px 18px!important;font-family:var(--owd-body);font-size:10px;letter-spacing:calc(.3em * var(--owd-track));text-transform:var(--owd-label-case);white-space:nowrap;color:var(--owd-text)!important;transition:background .4s,color .4s}
+#top_menu>.nav-item>a[href^="https://wa.me"]:hover{background:var(--owd-accent);border-color:var(--owd-accent)!important;color:var(--owd-on-accent)!important}
+.o_header_mobile #top_menu>.nav-item:has(>a[href^="https://wa.me"]),.offcanvas #top_menu>.nav-item:has(>a[href^="https://wa.me"]){margin-left:0}
+header .btn.owd-hd-cta{border:1px solid currentColor;border-radius:var(--owd-pill);background:transparent;color:var(--owd-text);font-family:var(--owd-body);font-size:10px;letter-spacing:calc(.3em * var(--owd-track));text-transform:var(--owd-label-case);font-weight:400;padding:9px 18px;white-space:nowrap;transition:background .4s,color .4s}
+header .btn.owd-hd-cta:hover,header .btn.owd-hd-cta:focus-visible{background:var(--owd-accent);border-color:var(--owd-accent)!important;color:var(--owd-on-accent)}
+
+/* ===== Botón flotante de WhatsApp (celular, páginas informativas) ===== */
+.owd-wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:1040;display:none;align-items:center;gap:10px;padding:13px 18px;border-radius:var(--owd-pill);background:var(--owd-brand);color:var(--owd-on-brand);border:1px solid color-mix(in srgb,var(--owd-on-brand) 35%,transparent);box-shadow:0 10px 30px rgba(0,0,0,.45);font-family:var(--owd-body);font-size:10px;letter-spacing:calc(.3em * var(--owd-track));text-transform:var(--owd-label-case);text-decoration:none}
+.owd-wa-float svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
+.owd-wa-float:hover{color:var(--owd-on-brand)}
+@media (max-width:991px){.owd-wa-float{display:inline-flex}}

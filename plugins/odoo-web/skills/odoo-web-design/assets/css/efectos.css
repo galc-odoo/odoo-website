@@ -1,0 +1,59 @@
+/* ===================== Bloque 2 · efecto wow ===================== */
+/* Hero de Inicio: fotos que se funden con acercamiento lento (solo CSS) */
+.owd-site .owd-shot img.owd-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:0;animation:owd-fade 24s linear infinite,owd-kb 12s ease-in-out infinite alternate}
+.owd-site .owd-shot img.owd-slide:nth-of-type(2){animation-delay:6s,0s}
+.owd-site .owd-shot img.owd-slide:nth-of-type(3){animation-delay:12s,0s}
+.owd-site .owd-shot img.owd-slide:nth-of-type(4){animation-delay:18s,0s}
+.owd-shot>img:first-child{position:relative;z-index:0}
+.owd-shot .owd-counter{z-index:3}
+@keyframes owd-fade{0%{opacity:0}4%{opacity:1}25%{opacity:1}29%{opacity:0}100%{opacity:0}}
+@keyframes owd-kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+.owd-shot .owd-counter i::after{animation:owd-prog 6s linear infinite;inset:0 auto 0 0;width:0}
+@keyframes owd-prog{from{width:0}to{width:100%}}
+body.editor_enable .owd-site .owd-shot img.owd-slide{display:none}
+@media (prefers-reduced-motion:reduce){.owd-site .owd-shot img.owd-slide{display:none}}
+
+/* Cursor de marca (escritorio) */
+.owd-cursor{position:fixed;left:0;top:0;z-index:2100;width:14px;height:14px;margin:-7px 0 0 -7px;border:1px solid color-mix(in srgb,var(--owd-text) 80%,transparent);border-radius:50%;pointer-events:none;display:grid;place-items:center;transition:width .35s cubic-bezier(.16,.84,.24,1),height .35s cubic-bezier(.16,.84,.24,1),margin .35s cubic-bezier(.16,.84,.24,1),background .35s,opacity .3s;opacity:0;mix-blend-mode:normal}
+.owd-cursor span{font-family:var(--owd-body);font-size:9px;letter-spacing:calc(.3em * var(--owd-track));text-transform:var(--owd-label-case);color:var(--owd-bg);opacity:0;transition:opacity .25s}
+.owd-cursor.is-on{opacity:1}
+.owd-cursor.is-link{width:44px;height:44px;margin:-22px 0 0 -22px;background:color-mix(in srgb,var(--owd-text) 8%,transparent)}
+.owd-cursor.is-view{width:76px;height:76px;margin:-38px 0 0 -38px;background:var(--owd-text);border-color:var(--owd-text)}
+.owd-cursor.is-view span{opacity:1}
+@media (hover:none),(pointer:coarse){.owd-cursor{display:none}}
+
+/* Botones magnéticos */
+.owd-site .btn.owd-mag,.owd-site .owd-mag{will-change:transform}
+
+/* Vista ampliada de la galería */
+.owd-lightbox{position:fixed;inset:0;z-index:2200;background:color-mix(in srgb,var(--owd-bg) 94%,transparent);backdrop-filter:blur(6px);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.16,.84,.24,1)}
+.owd-lightbox.is-open{opacity:1;pointer-events:auto}
+.owd-lightbox img{max-width:min(92vw,1200px);max-height:84vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6);transform:scale(.97);transition:transform .6s cubic-bezier(.16,.84,.24,1)}
+.owd-lightbox.is-open img{transform:none}
+.owd-lightbox button{position:absolute;background:none;border:1px solid color-mix(in srgb,var(--owd-text) 45%,transparent);color:var(--owd-text);width:52px;height:52px;border-radius:50%;font-size:20px;cursor:pointer;display:grid;place-items:center;transition:background .3s,color .3s}
+.owd-lightbox button:hover,.owd-lightbox button:focus-visible{background:var(--owd-text);color:var(--owd-bg)}
+.owd-lb-close{top:20px;right:20px}.owd-lb-prev{left:20px;top:50%;margin-top:-26px}.owd-lb-next{right:20px;top:50%;margin-top:-26px}
+.owd-lb-count{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:var(--owd-body);font-size:10px;letter-spacing:calc(.34em * var(--owd-track));color:color-mix(in srgb,var(--owd-text) 70%,transparent)}
+.owd-gallery .owd-frame{cursor:zoom-in}
+
+/* Menú de celular a pantalla completa */
+#top_menu_collapse_mobile.o_navbar_mobile{width:100vw!important;max-width:100vw!important;background:var(--owd-brand)!important;border:0!important;color:var(--owd-on-brand)}
+#top_menu_collapse_mobile .offcanvas-header{padding:22px 20px 0}
+#top_menu_collapse_mobile .btn-close{filter:invert(1) grayscale(1) brightness(2);opacity:.9}
+#top_menu_collapse_mobile .offcanvas-body>ul>li:has(> form.o_searchbar_form){display:none}
+#top_menu_collapse_mobile .top_menu{margin:0!important}
+#top_menu_collapse_mobile .top_menu .nav-item{border:0!important;border-bottom:1px solid color-mix(in srgb,var(--owd-on-brand) 14%,transparent)!important}
+#top_menu_collapse_mobile .top_menu .nav-link{font-family:var(--owd-display)!important;font-style:var(--owd-display-style);text-transform:var(--owd-display-case);font-size:clamp(30px,9vw,42px)!important;line-height:1;letter-spacing:-.01em;color:var(--owd-on-brand)!important;padding:18px 24px!important}
+#top_menu_collapse_mobile .top_menu .nav-link.active{color:var(--owd-accent-on-brand)!important}
+#top_menu_collapse_mobile .top_menu .nav-link[href^="https://wa.me"]{font-family:var(--owd-body)!important;font-style:normal;font-size:11px!important;letter-spacing:calc(.3em * var(--owd-track));border:1px solid color-mix(in srgb,var(--owd-on-brand) 60%,transparent);border-radius:var(--owd-pill);padding:14px 22px!important;margin:24px 24px 0;display:inline-block}
+#top_menu_collapse_mobile .top_menu .nav-item:has(> a[href^="https://wa.me"]){border-bottom:0!important}
+#top_menu_collapse_mobile.show .top_menu .nav-item{animation:owd-menu-in .7s cubic-bezier(.16,.84,.24,1) both}
+#top_menu_collapse_mobile.show .top_menu .nav-item:nth-child(2){animation-delay:.05s}
+#top_menu_collapse_mobile.show .top_menu .nav-item:nth-child(3){animation-delay:.1s}
+#top_menu_collapse_mobile.show .top_menu .nav-item:nth-child(4){animation-delay:.15s}
+#top_menu_collapse_mobile.show .top_menu .nav-item:nth-child(5){animation-delay:.2s}
+#top_menu_collapse_mobile.show .top_menu .nav-item:nth-child(6){animation-delay:.25s}
+#top_menu_collapse_mobile.show .top_menu .nav-item:nth-child(7){animation-delay:.3s}
+@keyframes owd-menu-in{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+#top_menu_collapse_mobile .offcanvas-body::after{content:"" /* claim */;display:block;padding:28px 24px 34px;font-family:var(--owd-body);font-size:10px;letter-spacing:calc(.42em * var(--owd-track));text-transform:var(--owd-label-case);color:color-mix(in srgb,var(--owd-on-brand) 65%,transparent)}
+#top_menu_collapse_mobile .o_header_search,#top_menu_collapse_mobile .o_wsale_my_wish,#top_menu_collapse_mobile li:has(> a[href="/web/login"]){display:none!important}

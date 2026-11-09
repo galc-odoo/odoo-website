@@ -1,0 +1,48 @@
+{
+  "cliente": "cliente",
+  "tema": "calido-artesanal",
+  "descripcion": "Cálido artesanal: cafeterías, panaderías, productos naturales, bienestar, hecho a mano.",
+  "modo": "claro",
+  "colores": {
+    "bg": "#F6EFE4",
+    "text": "#2B1E16",
+    "mute": "#6B5849",
+    "accent": "#A3471F",
+    "brand": "#3D2A1E",
+    "on_brand": "#F6EFE4"
+  },
+  "fuentes": {
+    "display": "\"Fraunces\",Georgia,serif",
+    "body": "\"Work Sans\",system-ui,sans-serif",
+    "google": "Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Work+Sans:wght@300;400;500"
+  },
+  "estilo": {
+    "titular_italica": true,
+    "titular_mayusculas": false,
+    "titular_peso": 500,
+    "radio": "14px",
+    "pildora": "999px",
+    "boton_radio": "999px",
+    "espaciado": 0.45,
+    "etiquetas_mayusculas": true
+  },
+  "modulos": [
+    "nucleo",
+    "header-footer",
+    "contenido",
+    "efectos"
+  ],
+  "js": {
+    "paginas": [
+      "/",
+      "/nosotros",
+      "/servicios",
+      "/contacto"
+    ],
+    "whatsapp": "",
+    "botonFlotante": "Escríbenos",
+    "cursor": false,
+    "horario": null,
+    "formulario": "#owd_form"
+  }
+}

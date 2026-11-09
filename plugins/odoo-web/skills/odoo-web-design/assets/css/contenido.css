@@ -1,0 +1,49 @@
+/* ===================== Bloque 3 · contenido ===================== */
+.owd-hours{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--owd-rule)}
+.owd-hours>div{padding:36px 28px 40px 0;min-width:0}
+.owd-hours>div+div{padding-left:28px;border-left:1px solid var(--owd-rule)}
+.owd-site .owd-hours h4,.owd-site .owd-pack h4{font-family:var(--owd-body);margin:14px 0 10px;font-weight:400;font-size:12px;letter-spacing:calc(.32em * var(--owd-track));text-transform:var(--owd-label-case);line-height:1.5}
+.owd-hours .owd-big{font-family:var(--owd-display);font-style:var(--owd-display-style);font-size:clamp(28px,2.6vw,40px);line-height:1;margin:0 0 10px;text-transform:var(--owd-display-case);color:var(--owd-text)}
+.owd-hours p{margin:0;color:var(--owd-mute);font-size:15px;max-width:30ch}
+.owd-faq{border-top:1px solid var(--owd-rule);max-width:1000px}
+.owd-faq details{border-bottom:1px solid var(--owd-rule)}
+.owd-faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:26px 0;font-family:var(--owd-display);font-style:var(--owd-display-style);font-size:clamp(22px,2.2vw,32px);line-height:1.1;text-transform:var(--owd-display-case);color:var(--owd-text);transition:color .3s}
+.owd-faq summary::-webkit-details-marker{display:none}
+.owd-faq summary::after{content:"+";font-family:var(--owd-body);font-style:normal;font-size:22px;color:var(--owd-accent);transition:transform .4s var(--owd-ease)}
+.owd-faq details[open] summary::after{transform:rotate(45deg)}
+.owd-faq summary:hover{color:var(--owd-accent)}
+.owd-faq details>div{padding:0 0 28px;max-width:62ch}
+.owd-faq details p{margin:0;color:var(--owd-text);opacity:.85;font-size:16px}
+.owd-packs{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,36px)}
+.owd-pack{border:1px solid var(--owd-rule);padding:clamp(28px,3vw,44px);display:grid;gap:14px;align-content:start;position:relative;transition:border-color .5s}
+.owd-pack:hover{border-color:color-mix(in srgb,var(--owd-accent) 55%,transparent)}
+.owd-pack h3{margin:0;font-family:var(--owd-display);font-style:var(--owd-display-style);font-weight:var(--owd-display-weight);font-size:clamp(30px,3vw,46px);text-transform:var(--owd-display-case);line-height:.95;color:var(--owd-text)}
+.owd-pack p{margin:0;color:var(--owd-mute);font-size:15px;max-width:44ch}
+.owd-pack ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.owd-pack li{font-size:14px;color:var(--owd-text);padding-left:22px;position:relative}
+.owd-pack li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:1px;background:var(--owd-accent)}
+.owd-min{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:11px;letter-spacing:calc(.32em * var(--owd-track));text-transform:var(--owd-label-case);color:var(--owd-mute)}
+.owd-min strong{font-family:var(--owd-display);font-style:var(--owd-display-style);font-weight:var(--owd-display-weight);font-size:34px;letter-spacing:0;color:var(--owd-accent);text-transform:none}
+.owd-note{margin-top:32px;padding:22px 26px;border:1px solid var(--owd-rule);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;max-width:820px}
+.owd-note b{font-size:10px;letter-spacing:calc(.34em * var(--owd-track));text-transform:var(--owd-label-case);color:var(--owd-accent);font-weight:400;padding-top:3px}
+.owd-note p{margin:0;font-size:15px;color:var(--owd-text);opacity:.88}
+/* Reseñas: sección lista pero oculta hasta tener reseñas reales (en el editor se ve con borde punteado) */
+.owd-pending{display:none!important}
+body.editor_enable .owd-pending{display:block!important;outline:1px dashed color-mix(in srgb,var(--owd-accent) 60%,transparent);outline-offset:-12px}
+.owd-reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,36px)}
+.owd-review{border-top:1px solid var(--owd-rule);padding-top:26px}
+.owd-review blockquote{margin:0 0 18px;font-family:var(--owd-display);font-style:var(--owd-display-style);font-size:clamp(20px,1.8vw,26px);line-height:1.25;color:var(--owd-text)}
+.owd-review cite{font-style:normal;font-size:10px;letter-spacing:calc(.32em * var(--owd-track));text-transform:var(--owd-label-case);color:var(--owd-mute)}
+@media (max-width:991px){.owd-hours,.owd-packs,.owd-reviews{grid-template-columns:1fr}.owd-hours>div+div{padding-left:0;border-left:0;border-top:1px solid var(--owd-rule)}.owd-note{grid-template-columns:1fr}}
+
+/* ===== Cofundadores (debajo del fundador en Nosotros) y foto en el resultado del test ===== */
+.owd-cofounders{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--owd-rule)}
+.owd-cofounder{padding:40px 40px 8px 0;min-width:0}
+.owd-cofounder+.owd-cofounder{padding-left:40px;border-left:1px solid var(--owd-rule)}
+.owd-cofounder h3{margin:14px 0 6px;font-family:var(--owd-display);font-style:var(--owd-display-style);font-weight:var(--owd-display-weight);text-transform:var(--owd-display-case);font-size:clamp(34px,3.6vw,56px);line-height:.95;color:var(--owd-text)}
+.owd-cofounder .owd-role{margin:0 0 18px;font-size:11px;letter-spacing:calc(.34em * var(--owd-track));text-transform:var(--owd-label-case);color:var(--owd-mute)}
+.owd-cofounder p.owd-bio{margin:0;font-size:17px;color:var(--owd-text);opacity:.88;max-width:44ch}
+@media (max-width:767px){.owd-cofounders{grid-template-columns:1fr}.owd-cofounder,.owd-cofounder+.owd-cofounder{padding:32px 0 8px;border-left:0}.owd-cofounder+.owd-cofounder{border-top:1px solid var(--owd-rule)}}
+/* Fotos de cofundadores: mismo formato 4:5 y marco que la del fundador */
+.owd-cofounder-photo{width:100%;max-width:420px;margin-bottom:26px}
+.owd-cofounder-photo img{object-position:50% 30%}

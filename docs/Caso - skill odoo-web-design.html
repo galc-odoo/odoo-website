@@ -1,0 +1,72 @@
+<h3>📌 El caso</h3>
+<p><b>Qué es.</b> Un agente que ya sabe cómo se construye un sitio web <i>high end</i> en Odoo. El consultor le da los accesos de la base, el contexto del cliente, su maqueta en PDF y las fotos de referencia; el agente le enseña en una ventana al lado cómo va quedando el sitio <b>sin tocar la base</b>, propone efectos e interacciones que no se ven en sitios comunes, lo construye en Odoo cuando el consultor lo aprueba y al final lo recorre como un visitante, dando clic a todo frente al consultor.</p>
+<p><b>Para qué sirve.</b> Un sitio con diseño propio, animaciones y JavaScript a la medida toma muchas horas a mano y casi siempre termina en vistas modificadas que se pierden o se rompen en una migración. Con este caso la primera versión completa sale en horas, el código queda en un solo lugar que sobrevive a las actualizaciones, y el tiempo del consultor se va en dar contexto, decidir el diseño y revisar.</p>
+<p><b>Qué se hace y cómo</b> (un paso a la vez, el agente espera la respuesta antes de seguir):</p>
+<ol>
+<li><b>Accesos de la base</b> (URL, base, usuario, API key). Diagnóstico en solo lectura: versión, idiomas, páginas, menús, tienda.</li>
+<li><b>Contexto del cliente:</b> qué hace, a quién le vende y qué debe pasar cuando alguien entra al sitio.</li>
+<li><b>Maqueta en PDF</b> con todas las páginas y los efectos con JS y CSS que le gustaría ver.</li>
+<li><b>Imágenes principales</b>, solo como referencia (el diseñador puede cambiarlas).</li>
+<li><b>Vista previa en vivo:</b> elige la dirección visual (5 temas de partida que se ajustan a la marca, con revisión automática de contraste) y muestra cada página con bloques reales de Odoo, sin modificar la base.</li>
+<li><b>Recomendaciones:</b> transiciones entre páginas, botones animados, fotos que se acercan o se abren con el scroll, test interactivo, horario "abierto ahora", etc., según el giro. El consultor elige.</li>
+<li><b>Construcción en Odoo con aprobación:</b> páginas nuevas con bloques nativos (editables) y todo el CSS y JS en <b>Sitio web ‣ Configuración ‣ Código personalizado</b>, nunca en vistas.</li>
+<li><b>Revisión del diseñador</b> y los cambios que pida.</li>
+<li><b>Recorrido como usuario:</b> rastrea todas las páginas y enlaces, revisa cada página (contraste, fotos rotas, desbordes en celular, restos de plantilla) y da clic a todo en el navegador frente al consultor: menú, botones, formularios, menú móvil y tienda hasta el pago sin pagar. Entrega un reporte con hallazgos, correcciones y capturas.</li>
+</ol>
+<p><b>Por qué funciona.</b> Nada vive en las plantillas: el diseño son variables de un tema (colores, fuentes, estilo de títulos y botones) y módulos de CSS/JS que se activan según el proyecto, así que se adapta a cualquier giro sin reescribir código. Se ve y se aprueba antes de tocar la base, y la validación final la hace el propio agente navegando como lo haría un cliente.</p>
+
+<h3>🧪 Dónde se probó</h3>
+<p>En <b>BADDIE</b> (pizzería de lujo en CDMX), base de producción en Odoo 20 Online, por API RPC y con el navegador del agente.</p>
+<table border="1" cellpadding="6" style="border-collapse:collapse">
+<tr><th>Qué se hizo</th><th>Detalle</th></tr>
+<tr><td>Sitio informativo</td><td>Inicio, Nosotros, Antojos, Cómo pedir, Eventos, Contacto y Aviso de privacidad, con transición entre páginas, galería ampliada, menú móvil a pantalla completa y footer propio.</td></tr>
+<tr><td>Interactivos</td><td>Caja que se abre con el scroll, "diseña tu caja" en 3D con el slogan del evento, test "¿qué BADDIE eres?" con foto del producto, horario "abierto ahora", carrete horizontal, lista con acercamiento a cada salsa.</td></tr>
+<tr><td>Tienda</td><td>Catálogo, ficha de producto, carrito, dirección, facturación (México) y pago con la estética del sitio, solo con CSS.</td></tr>
+<tr><td>SEO para buscadores e IAs</td><td>Títulos y descripciones, datos estructurados (Restaurant, FAQPage), robots con permisos para rastreadores de IA y llms.txt.</td></tr>
+</table>
+<p>Después se generalizó: 5 temas de partida, más de 20 bloques, módulos opcionales y el recorrido de validación, probados en una vista previa local con temas claros y oscuros a 1440 y 375 px.</p>
+
+<h3>🔎 Qué se encontró</h3>
+<ul>
+<li><b>Las vistas se pierden en migraciones:</b> todo el CSS y JS va en el código personalizado del sitio y las páginas nuevas con bloques nativos. Ninguna plantilla estándar se edita.</li>
+<li>Los textos, URLs, imágenes y SEO son <b>traducibles</b>: hay que escribir el mismo valor en todos los idiomas activos (incluida la copia <code>src.translate</code> de cada foto) o el sitio en español sigue mostrando lo anterior.</li>
+<li>Escribir en una página genérica con contexto de sitio crea <b>copias</b> y puede renombrar la vista; cambiar una URL por API falla y hay que usar las traducciones del campo.</li>
+<li>El editor <b>une titulares</b> de varias líneas y <b>escapa dos veces</b> los "&amp;" (se ve "&amp;amp;"): titulares en un solo bloque con salto de línea y revisión al final.</li>
+<li>Ocultar el footer de la plantilla no quita su HTML: el recorrido encontró enlaces vacíos ("#") que Google sí lee.</li>
+<li>Si el dominio del sitio no apunta a Odoo, robots.txt bloquea todo y el sitio no se indexa.</li>
+<li>En un sitio oscuro, el resumen del carrito quedaba con texto del mismo color que el fondo y los botones con recuadros: se corrigió solo con CSS.</li>
+<li>Cambiar variables en <code>&lt;html&gt;</code> en cada cuadro de animación hacía que el sitio "se trabara": las animaciones se limitan a la sección y a transform/opacity.</li>
+<li>La revisión automática detectó lo que a simple vista se escapa: títulos del footer con contraste 2.95:1 en un tema, marcadores sin reemplazar y un botón de WhatsApp sin número.</li>
+</ul>
+
+<h3>⏱️ Tiempos</h3>
+<p>Aproximados y por confirmar: BADDIE se construyó mientras se creaba el agente, así que su tiempo no es representativo.</p>
+<table border="1" cellpadding="6" style="border-collapse:collapse">
+<tr><th>Sitio de 5 a 7 páginas con diseño propio</th><th>Consultor promedio</th><th>Consultor experto</th><th>Con el agente</th></tr>
+<tr><td>Diagnóstico, maqueta y vista previa</td><td>8h - 12h</td><td>4h - 6h</td><td>1h - 2h, con el ida y vuelta del diseñador</td></tr>
+<tr><td>Construcción en Odoo con efectos a la medida</td><td>30h - 40h</td><td>15h - 20h</td><td>2h - 4h</td></tr>
+<tr><td>Validación completa (todas las páginas, enlaces, celular)</td><td>4h - 6h</td><td>2h - 3h</td><td>30 a 60 min, con reporte</td></tr>
+</table>
+<p>Casi todo el tiempo a mano se va en pelear con el editor y las traducciones, escribir y depurar el JavaScript y revisar página por página en celular.</p>
+
+<h3>📎 Entregables y documentos</h3>
+<table border="1" cellpadding="6" style="border-collapse:collapse">
+<tr><th>Tipo</th><th>Qué contiene</th><th>Dónde</th></tr>
+<tr><td>Repositorio</td><td>Skill completo: pasos, temas, bloques, CSS/JS, scripts y documentación</td><td>github.com/galc-odoo/odoo-website</td></tr>
+<tr><td>PDF</td><td>Cómo funciona, cómo instalarlo y cómo proponer mejoras en GitHub</td><td>Adjunto en el chatter</td></tr>
+<tr><td>Sitio de prueba</td><td>BADDIE</td><td>baddiemx.odoo.com</td></tr>
+</table>
+
+<h3>🤖 Ya creé el agente</h3>
+<p>Es el skill <b>odoo-web-design</b>. Se instala desde el chat de Claude y cada mejora aprobada en GitHub les llega a todos. Ya trae documentadas las reglas y los errores que encontré con BADDIE, y la validación como usuario al final de cada sitio.</p>
+
+<h3>⚠️ Cuándo aplicarlo y qué cuidar</h3>
+<ul>
+<li>Conviene con clientes que quieren un sitio que se vea distinto a una plantilla, con interacciones o tienda, o cuando el sitio tardaría días a mano.</li>
+<li>Trabajar primero en una copia de la base; en producción, las páginas se crean sin publicar y se publican con el consultor.</li>
+<li>Nada se escribe en Odoo sin aprobación; CSS y JS siempre en el código personalizado.</li>
+<li>Los métodos de pago, el dominio y las llaves los configura el cliente; las reseñas deben ser reales.</li>
+<li>El código propio en Odoo Online puede requerir ajustes cuando cambia la versión: está concentrado y documentado para que sea rápido.</li>
+</ul>
+<p><b>Idea por explorar.</b> Ofrecerlo como paquete junto con tienda en línea, SEO para IAs y el manual del cliente para editar su sitio.</p>
+<p><i>Por confirmar: los tiempos son estimados; falta medirlo en un segundo cliente de otro giro (por ejemplo, corporativo en tema claro) y revisar los selectores de la tienda en la siguiente versión de Odoo.</i></p>

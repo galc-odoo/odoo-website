@@ -1,0 +1,14 @@
+{
+  "name": "odoo-website",
+  "owner": { "name": "galc-odoo" },
+  "metadata": {
+    "description": "Skill de Claude para diseñar, construir y validar sitios web en Odoo."
+  },
+  "plugins": [
+    {
+      "name": "odoo-web",
+      "source": "./plugins/odoo-web",
+      "description": "Sitios web en Odoo de la maqueta al recorrido como usuario: vista previa sin tocar la base, CSS/JS en el código personalizado y validación dando clic a todo."
+    }
+  ]
+}

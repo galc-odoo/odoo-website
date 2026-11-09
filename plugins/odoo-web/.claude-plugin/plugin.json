@@ -1,0 +1,8 @@
+{
+  "name": "odoo-web",
+  "description": "Sitios web en Odoo de la maqueta al recorrido como usuario: vista previa sin tocar la base, CSS/JS en el código personalizado y validación dando clic a todo.",
+  "author": {
+    "name": "galc-odoo"
+  },
+  "version": "2.0.0"
+}
